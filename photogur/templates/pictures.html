@@ -1,25 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Photogur</title>
+{% extends 'base.html' %}
 
-</head>
-<body>
-  <h1>List of Pictures</h1>
-  
-  <ul>
-    {% for picture in pictures %}
-    <a href="{% url 'picture_details' pic_id=picture.id %}">
-      <li>
-        <img src="{{picture.url}}" alt="{{picture.title}}">
-        <h2>{{picture.title}} by {{picture.artist}}</h2>
-        <p>Comments: {{picture.comments.count}}</p>
-      </li>
-    </a>
-    {% endfor %}
-  </ul>
-</body>
-</html>
+{% block content %}
+  <main class="content">
+    <h2>List of Pictures</h2>
+    
+    <ul>
+      {% for picture in pictures %}
+      <a href="{% url 'picture_details' pic_id=picture.id %}">
+        <li>
+          <img src="{{picture.url}}" alt="{{picture.title}}">
+          <h2>{{picture.title}} by {{picture.artist}}</h2>
+          <p>Comments: {{picture.comments.count}}</p>
+        </li>
+      </a>
+      {% endfor %}
+    </ul>
+  </main>
+{% endblock %}
