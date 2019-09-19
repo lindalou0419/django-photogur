@@ -30,7 +30,7 @@
 
     <form id="comment-form" action="{% url 'comment_create' %}" method="POST">
       {% csrf_token %}
-      <input type="hidden" name="picture" value="{{picture.id}}" />
+      <input type="hidden" name="picture-id" value="{{picture.id}}" />
 
       <div class="field">
         <label for="poster-name">Name</label>
