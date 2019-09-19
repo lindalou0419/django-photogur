@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <main class="content">
+  <section class="content">
     <h2>{{picture.title}}</h2>
     <h3>By {{picture.artist}}</h3>
 
@@ -12,5 +12,5 @@
       <li>{{comment.message}} - {{comment.name}}</li>
       {% endfor %}
     </ul>
-  </main>
+  </section>
 {% endblock %}

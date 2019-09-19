@@ -4,20 +4,27 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>{{title}}</title>
+
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:300&display=swap" rel="stylesheet" />
+
+  <!-- Custom CSS -->
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/style.css'%}" />
 </head>
 <body>
-  <header>
-    <h1>Photogur</h1>
-  </header>
+  <main class="wrapper">
+    <header>
+      <h1 class="main-header">Photogur</h1>
+    </header>
 
-  {% block content %}
-  {% endblock %}
+    {% block content %}
+    {% endblock %}
 
-  <footer>
-    <p>Copyright &copy; Django-Photogur 2019</p>
-  </footer>
+    <footer>
+      <p>Copyright &copy; Django-Photogur 2019</p>
+    </footer>
+  </main>
 </body>
 </html>
