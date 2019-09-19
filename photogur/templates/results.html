@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <section class="search-results content">
+    <h2 class=result-count">Search Results: {{pictures.count}}</h2>
+
+    <ul class="picture-card">
+      {% for picture in pictures %}
+      <a href="{% url 'picture_details' pic_id=picture.id %}">
+        <li class="card-item">
+          <img src="{{picture.url}}" alt="{{picture.title}}">
+          <p class="pic-title">{{picture.title}} by {{picture.artist}}</p>
+          <p class="comment-count">Comments: {{picture.comments.count}}</p>
+        </li>
+      </a>
+      {% endfor %}
+    </ul>
+  </section>
+{% endblock %}

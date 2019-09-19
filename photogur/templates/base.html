@@ -13,10 +13,20 @@
   {% load static %}
   <link rel="stylesheet" href="{% static 'css/style.css'%}" />
 </head>
+
 <body>
   <main class="wrapper">
     <header>
       <a href="{% url 'index' %}"><h1 class="main-header">Photogur</h1></a>
+
+      <form id="search-form" action="{% url 'picture_search' %}" method="get">
+        <div class="field">
+          <label for="picture-search">Search: </label>
+          <input type="search" id="picture-search" name="query" value="{{query}}" placeholder="Enter Artist Name" />
+        </div>
+
+        <button class="submit-btn" type="submit">Go!</button>
+      </form>
     </header>
 
     {% block content %}
