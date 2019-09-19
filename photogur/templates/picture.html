@@ -1,16 +1,26 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <section class="content">
-    <h2>{{picture.title}}</h2>
-    <h3>By {{picture.artist}}</h3>
+  <section class="picture-details content">
+    <div class="title-wrapper">
+      <h2>{{picture.title}}</h2>
+      <h3>By {{picture.artist}}</h3>
+    </div>
 
     <img src="{{picture.url}}" alt="{{picture.title}}" />
+    <hr>
 
-    <ul>
-      {% for comment in picture.comments.all %}
-      <li>{{comment.message}} - {{comment.name}}</li>
-      {% endfor %}
-    </ul>
+    <div class="comment-section">
+      <h2>Comments</h2>
+
+      <ul class="comment-wrapper">
+        {% for comment in picture.comments.all %}
+        <li>
+          <p class="message">{{comment.message}}</p>
+          <p class="author">Posted by {{comment.name}} on {{comment.created_at}}</p>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
   </section>
 {% endblock %}
