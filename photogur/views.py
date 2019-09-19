@@ -15,8 +15,10 @@ def picture(request):
 
 def picture_show(request, pic_id):
   picture = Picture.objects.get(id=pic_id)
+  comments = picture.comments.order_by("-created_at")
   context = {
     'picture': picture,
+    'comments': comments,
     'title': picture.title,
   }
   response = render(request, 'picture.html', context)

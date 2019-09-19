@@ -13,3 +13,6 @@ class Comment(models.Model):
   created_at = models.DateTimeField(auto_now_add=True)
   message = models.TextField()
   picture = models.ForeignKey(Picture, on_delete=models.CASCADE, related_name='comments')
+
+  def __str__(self):
+    return f"Comment for {self.picture.title}"

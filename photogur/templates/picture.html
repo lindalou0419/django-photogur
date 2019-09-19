@@ -14,7 +14,7 @@
       <h2>Comments</h2>
 
       <ul class="comment-wrapper">
-        {% for comment in picture.comments.all %}
+        {% for comment in comments %}
         <li>
           <p class="message">{{comment.message}}</p>
           <p class="author">Posted by {{comment.name}} on {{comment.created_at}}</p>
