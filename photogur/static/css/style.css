@@ -183,7 +183,7 @@ button:active {
   background: #e6e6ff;
 }
 
-.comment-section h2 {
+.comment-section h2, .comment-form-section h2 {
   font-size: 2.6rem;
   font-weight: 700;
   line-height: 3rem;
@@ -199,11 +199,34 @@ button:active {
   color: #666;
 }
 
+#comment-form {
+  margin: 2rem 0;
+}
+
+#comment-form .field, #comment-form label, #comment-form textarea {
+  display: block;
+  font-size: 1.6rem;
+}
+
+#comment-form label {
+  font-size: 2rem;
+  line-height: 3rem;
+}
+
+#comment-form textarea, #comment-form input, #comment-form .submit-btn {
+  width: 100%;
+}
+
+#comment-form .field {
+  padding: 1rem 0;
+}
+
+#comment-form .submit-btn {
+  font-size: 1.6rem;
+  height: auto;
+}
+
 @media only screen and (max-width: 320px) {
-  .content {
-    margin: 0 2rem;
-  }
-  
   #search-form input {
     width: 150px;
   }
@@ -258,5 +281,13 @@ button:active {
 
   .search-results {
     padding: 2rem 0;
+  }
+
+  .comment-form-section {
+    margin: 2rem auto;
+  }
+
+  #comment-form textarea, #comment-form input, #comment-form .submit-btn {
+    width: 800px;
   }
 }

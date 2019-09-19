@@ -34,3 +34,6 @@ def picture_search(request):
   }
   response = render(request, 'results.html', context)
   return HttpResponse(response)
+
+def comment_create(request):
+  pass

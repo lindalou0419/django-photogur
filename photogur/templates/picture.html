@@ -22,5 +22,29 @@
         {% endfor %}
       </ul>
     </div>
+    <hr>
+  </section>
+  
+  <section class="comment-form-section content">
+    <h2>Submit a Comment</h2>
+
+    <form id="comment-form" action="{% url 'comment_create' %}" method="POST">
+      {% csrf_token %}
+      <input type="hidden" name="picture" value="{{picture.id}}" />
+
+      <div class="field">
+        <label for="poster-name">Name</label>
+        <input id="poster-name" type="text" placeholder="Enter Your Name" name="poster-name" />
+      </div>
+      
+      <div class="field">
+        <label for="poster-comment">Message</label>
+        <textarea id="poster-comment" name="poster-comment" rows="10" cols="30" placeholder="Enter Your Comment"></textarea>
+      </div>
+
+      <div class="field">
+        <button type="submit" class="submit-btn">Add Comment</button>
+      </div>
+    </form>
   </section>
 {% endblock %}
