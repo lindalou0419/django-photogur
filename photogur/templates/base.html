@@ -27,6 +27,20 @@
 
         <button class="submit-btn" type="submit">Go!</button>
       </form>
+
+      <nav class="main-nav">
+        <ul>
+          {% if request.user.is_authenticated %}
+            <li>
+              Welcome {{user.username}}, <a href="{% url 'logout' %}">Log Out</a>
+            </li>
+            <li><a href="{% url 'picture_new' %}">New Picture</a></li>
+          {% else %}
+            <li><a href="{% url 'signup' %}">Create an Account</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+          {% endif %}
+        </ul>
+      </nav>
     </header>
 
     {% block content %}
