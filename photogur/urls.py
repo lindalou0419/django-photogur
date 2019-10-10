@@ -8,9 +8,10 @@ urlpatterns = [
   path('pictures/', views.picture, name="pictures"),
   path('pictures/<int:pic_id>/', views.picture_show, name='picture_details'),
   path('pictures/new/', views.picture_new, name='picture_new'),
+  path('pictures/create/', views.picture_create, name='picture_create'),
 
   path('search/', views.picture_search, name='picture_search'),
-  path('comments/new/', views.comment_create, name='comment_create/'),
+  path('comments/new/', views.comment_create, name='comment_create'),
 
   path('accounts/signup/', views.signup, name='signup'),
   path('accounts/signup_create/', views.signup_create, name='signup_create'),

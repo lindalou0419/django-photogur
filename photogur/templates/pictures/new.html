@@ -3,7 +3,7 @@
 {% block content %}
   <h2>Add a New Picture</h2>
 
-  <form action = "" method="POST">
+  <form action = "{% url 'picture_create' %}" method="POST">
     {% csrf_token %}
 
     {{ form.as_p }}

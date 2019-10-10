@@ -103,3 +103,16 @@ def picture_new(request):
   }
   response = render(request, 'pictures/new.html', context)
   return HttpResponse(response)
+#------------------------------------------
+
+
+@login_required
+def picture_create(request):
+  form = PictureForm(request.POST)
+  if form.is_valid():
+    form.save()
+    return redirect('pictures')
+  else:
+    context = {'form': form}
+    return render(request, 'products/new.html', context)
+#------------------------------------------
