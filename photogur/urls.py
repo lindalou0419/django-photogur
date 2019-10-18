@@ -6,10 +6,11 @@ urlpatterns = [
   path('admin/', admin.site.urls),
   path('', views.root, name="index"),
   path('pictures/', views.picture, name="pictures"),
-  path('pictures/<int:picture_id>/', views.picture_show, name='picture_details'),
+  path('pictures/<int:picture_id>/', views.picture_show, name='picture_show'),
   path('pictures/new/', views.picture_new, name='picture_new'),
   path('pictures/create/', views.picture_create, name='picture_create'),
   path('pictures/<int:picture_id>/edit/', views.picture_edit, name='picture_edit'),
+  path('pictures/<int:picture_id>/update/', views.picture_update, name='picture_update'),
 
   path('search/', views.picture_search, name='picture_search'),
   path('comments/new/', views.comment_create, name='comment_create'),

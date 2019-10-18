@@ -4,7 +4,7 @@
   <section class="content">
     <ul class="picture-card">
       {% for picture in pictures %}
-      <a href="{% url 'picture_details' picture_id=picture.id %}">
+      <a href="{% url 'picture_show' picture_id=picture.id %}">
         <li class="card-item">
           <img src="{{picture.url}}" alt="{{picture.title}}">
           <p class="pic-title">{{picture.title}} by {{picture.artist}}</p>

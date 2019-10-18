@@ -67,7 +67,7 @@ def comment_create(request):
     picture = picture
   )
 
-  return redirect('picture_details', picture.id)
+  return redirect('picture_show', picture.id)
   # return HttpResponseRedirect(reverse('picture_details', args=[picture.id]))
 #------------------------------------------
 
@@ -118,6 +118,30 @@ def picture_edit(request, picture_id):
   }
   response = render(request, 'pictures/edit.html', context)
   return HttpResponse(response)
+#------------------------------------------
+
+
+@login_required
+def picture_update(request, picture_id):
+  picture = get_object_or_404(Picture, id=picture_id, user=request.user.id)
+  # picture = Picture.objects.get(id=picture_id)
+  form = PictureForm(request.POST, instance=picture)
+  if form.is_valid():
+    picture_edit = form.instance
+    picture_edit.user = request.user
+    picture_edit.id = picture_id
+    # picture_edit.picture = picture
+    picture_edit.save()
+    # form.save()
+    return redirect('picture_show', picture.id)
+  else:
+    context = {
+      'form': form,
+      'title': f'Edit {picture.title} Information',
+      'product': product,
+    }
+    response = render(request, 'pictures/edit.html', context)
+    return HttpResponse(response)
 #------------------------------------------
 
 

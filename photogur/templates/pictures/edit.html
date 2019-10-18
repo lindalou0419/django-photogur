@@ -4,7 +4,7 @@
   <section class="content picture-edit">
     <h2>Edit Picture</h2>
 
-    <form action="{% url 'picture_edit' picture_id=picture.id %}" method="POST" class="picture-form">
+    <form action="{% url 'picture_update' picture_id=picture.id %}" method="POST" class="picture-form">
       {% csrf_token %}
 
       {{form.as_p}}
