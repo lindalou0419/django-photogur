@@ -10,6 +10,13 @@
     <img src="{{picture.url}}" alt="{{picture.title}}" />
     <hr>
 
+    {% if user.is_authenticated %}
+      <nav class="picture-nav">
+        <a href="{% url 'picture_edit' picture_id=picture.id %}" class="btn">Edit Picture</a>
+      </nav>
+      <hr>
+    {% endif %}
+
     <div class="comment-section">
       <h2>Comments</h2>
 

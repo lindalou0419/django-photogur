@@ -1,5 +1,5 @@
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.http import require_http_methods
 from django.urls import path, reverse
 
@@ -27,8 +27,8 @@ def picture(request):
 #------------------------------------------
 
 
-def picture_show(request, pic_id):
-  picture = Picture.objects.get(id=pic_id)
+def picture_show(request, picture_id):
+  picture = Picture.objects.get(id=picture_id)
   comments = picture.comments.order_by("-created_at")
   context = {
     'picture': picture,
@@ -102,6 +102,21 @@ def picture_new(request):
     'title': 'Add a New Picture',
   }
   response = render(request, 'pictures/new.html', context)
+  return HttpResponse(response)
+#------------------------------------------
+
+
+@login_required
+def picture_edit(request, picture_id):
+  # picture = Picture.objects.get(id=picture_id)
+  picture = get_object_or_404(Picture, id=picture_id, user=request.user.id)
+  form = PictureForm(instance=picture)
+  context = {
+    'form': form,
+    'title': f'Edit {picture.title} Information',
+    'picture': picture
+  }
+  response = render(request, 'pictures/edit.html', context)
   return HttpResponse(response)
 #------------------------------------------
 

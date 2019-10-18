@@ -1,12 +1,14 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 class Picture(models.Model):
   title = models.CharField(max_length=255)
   artist = models.CharField(max_length=255)
   url = models.CharField(max_length=255)
+  user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='users')
 
   def __str__(self):
-    return self.title.title()
+    return f'{self.title.title()} uploaded by {self.user}'
 
 class Comment(models.Model):
   name = models.CharField(max_length=255)
